@@ -9,33 +9,6 @@
     <title>Mappa di Neland</title>
 </head>
 <body>
-    <img id="img" src="./src/mappa.png">
-    <script src="./dist/wheel-zoom.min.js"></script>
-
-    <script>
-        window.onload = function() {
-            var image = document.getElementById("img");
-            function updateImage() {
-                image.src = image.src.split("?")[0] + "?" + new Date().getTime();
-            }
-            setInterval(updateImage, 1000);
-        }
-        //
-        const myZoom = WZoom.create('img', {
-            maxScale: 20,
-            speed: 6,
-            smoothExtinction: false,
-            watchImageChange: false,
-            prepare: function (scale, correct_x, correct_y) {
-                // do something when image prepared
-            },
-            rescale: function (scale, correct_x, correct_y, min_scale) {
-                // do something image rescaled
-            }
-        });
-        window.addEventListener('resize', function () {
-            myZoom.prepare();
-        })
-    </script>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FvOZJ2soz5xYNGSkBLnxmah%2FNeland%3Fnode-id%3D0%253A1%26t%3DRKQuqUHlP9ixH5jb-1" allowfullscreen></iframe>
 </body>
 </html>

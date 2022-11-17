@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="javascript" href="script.js"></script>
+    <title>Mappa di Neland</title>
+</head>
+<body>
+    <img id="img" src="./src/mappa.png">
+    <script src="./dist/wheel-zoom.min.js"></script>
+
+    <script>
+        window.onload = function() {
+            var image = document.getElementById("img");
+            function updateImage() {
+                image.src = image.src.split("?")[0] + "?" + new Date().getTime();
+            }
+            setInterval(updateImage, 1000);
+        }
+        //
+        const myZoom = WZoom.create('img', {
+            maxScale: 20,
+            speed: 6,
+            smoothExtinction: false,
+            watchImageChange: false,
+            prepare: function (scale, correct_x, correct_y) {
+                // do something when image prepared
+            },
+            rescale: function (scale, correct_x, correct_y, min_scale) {
+                // do something image rescaled
+            }
+        });
+        window.addEventListener('resize', function () {
+            myZoom.prepare();
+        })
+    </script>
+</body>
+</html>
